@@ -6,13 +6,8 @@ const assert = require("uvu/assert");
 
 const dom = suite("dom");
 
-const code = [
-  "<html>",
-  "<body>",
-  "<div id='root'></div>",
-  "</body>",
-  "</html>"
-].join("\n");
+const { loadFixture } = require("./helpers/file");
+const code = loadFixture("dom/index.html");
 
 dom.before((ctx) => {
   const jsdom = new JSDOM(code);
